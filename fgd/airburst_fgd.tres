@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=8 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/group_solid_class.tres" type="Resource" id=1]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/detail_solid_class.tres" type="Resource" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/illusionary_solid_class.tres" type="Resource" id=5]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/point_classes/light_point_class.tres" type="Resource" id=6]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/base_classes/light_base_class.tres" type="Resource" id=7]
+[ext_resource path="res://shpee.tscn" type="PackedScene" id=8]
 
 [resource]
 script = ExtResource( 4 )
@@ -14,4 +15,4 @@ export_file = false
 target_folder = ""
 fgd_name = "Qodot"
 base_fgd_files = [  ]
-entity_definitions = [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ) ]
+entity_definitions = [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
