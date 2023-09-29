@@ -34,6 +34,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/fgd/solid_classes/physics.gd"
 }, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/pmove.gd"
+}, {
+"base": "KinematicBody",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://scripts/weapon/projectiles/_projectile.gd"
+}, {
 "base": "Reference",
 "class": "QodotDependencies",
 "language": "GDScript",
@@ -180,6 +190,8 @@ _global_script_class_icons={
 "OrbitArm": "",
 "PhysicsBall": "",
 "PhysicsEntity": "",
+"Player": "",
+"Projectile": "",
 "QodotDependencies": "",
 "QodotEntity": "",
 "QodotFGDBaseClass": "",
@@ -287,7 +299,6 @@ atk1={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 quality/filters/anisotropic_filter_level=1
 quality/filters/use_nearest_mipmap_filter=true
 quality/filters/use_fxaa=true

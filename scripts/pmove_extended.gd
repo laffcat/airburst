@@ -10,9 +10,14 @@ pmove_extended.gd
 """
 onready var wep_active : Weapon = $Head/Camera/ViewModel/RL_hud
 onready var my_head = $Head
+onready var cam = $Head/Camera
+onready var xhair = $Head/Camera/x_01
 
 var ladder_normal : Vector3 = Vector3.UP
 const LADDER_LAYER = 2
+
+export var checkpoint_pos: Vector3
+export var mass: float = 1.0
 
 """
 ===============
@@ -184,8 +189,7 @@ func ground_accelerate(wishdir : Vector3, wishspeed : float):
 
 func char_inputs():
 	if atk1_press and atk1_able:
-		wep_active.animation_player.play("shoot")
-		wep_active.animation_player.seek(0.0)
+		wep_active.shoot(cam.global_translation.direction_to(xhair.global_translation), xhair.global_translation)
 
 func jump_button():
 	if is_dead: 
@@ -206,7 +210,7 @@ func jump_button():
 		#jump_press = false
 		hangtime = 0.0
 		
-		my_head.swayPos.y -= 0.4
+		my_head.swayPos.y = -0.4
 		
 		sfx.play_jump()
 		

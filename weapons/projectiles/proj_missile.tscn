@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://weapons/missile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/weapon/projectiles/proj_missile.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.394813, 0.974063 )
+colors = PoolColorArray( 0.0971985, 0.097816, 0.136719, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.0459459, 0.406818 ), 0.0, 0.188666, 0, 0, Vector2( 1, 1 ), 0.0992085, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_align_y = true
+gravity = Vector3( 0, 0.5, 0 )
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+radial_accel = 0.2
+scale = 0.4
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.2, 0.2, 0.45 )
+
+[node name="Projectile" type="KinematicBody"]
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="missile" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Particles" type="Particles" parent="missile"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.435139 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+shape = SubResource( 8 )

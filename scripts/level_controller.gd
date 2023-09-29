@@ -11,8 +11,8 @@ onready var player_head = $Player/Head
 onready var player_camera = $Player/Head/Camera
 
 func _process(_delta):
-	if player.global_transform.origin[1] < -75.0:
-		reset_player_pos(Vector3(0, 38.0, -120.0))
+	if player.global_transform.origin[1] < -200.0:
+		reset_player_pos(player.checkpoint_pos)
 
 """
 ===============

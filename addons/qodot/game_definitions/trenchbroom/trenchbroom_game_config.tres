@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource( 1 )
 export_file = false
-trenchbroom_games_folder = "C:\\Users\\calam\\Desktop\\TrenchBroom-Win64-v2023.1-Release\\games\\"
-game_name = "Airburst"
+trenchbroom_games_folder = "C:/Users/calam/Desktop/TrenchBroom-Win64-v2023.1-Release/games"
+game_name = "Qodot"
 icon = ExtResource( 2 )
 fgd_files = [ ExtResource( 3 ) ]
 brush_tags = [  ]
