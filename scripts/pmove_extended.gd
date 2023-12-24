@@ -10,6 +10,7 @@ pmove_extended.gd
 """
 onready var wep_active : Weapon = $Head/Camera/ViewModel/RL_hud
 onready var my_head = $Head
+onready var barrel = $Head/Camera/Barrel
 onready var cam = $Head/Camera
 onready var xhair = $Head/Camera/x_01
 
@@ -38,7 +39,7 @@ func categorize_position():
 	
 	ground_plane = false
 	
-	if trace.fraction == 1:
+	if trace.fraction == 1 or velocity[1] > 12:
 		state = FALLING
 		ground_normal = Vector3.UP
 	else: 
@@ -189,7 +190,7 @@ func ground_accelerate(wishdir : Vector3, wishspeed : float):
 
 func char_inputs():
 	if atk1_press and atk1_able:
-		wep_active.shoot(cam.global_translation.direction_to(xhair.global_translation), xhair.global_translation)
+		wep_active.shoot(cam.global_translation.direction_to(xhair.global_translation), barrel.global_translation)
 
 func jump_button():
 	if is_dead: 

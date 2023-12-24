@@ -116,10 +116,10 @@ tracks/2/keys = PoolRealArray( 0, 1, -1.33227e-15, -0.351855, 0.126313, -0.13763
 
 [node name="RL_hud" instance=ExtResource( 3 )]
 script = ExtResource( 4 )
-shot_speed = 20.0
 
 [node name="Cylinder" parent="Armature/Skeleton" index="0"]
 cast_shadow = 0
+generate_lightmap = false
 material/0 = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="1"]

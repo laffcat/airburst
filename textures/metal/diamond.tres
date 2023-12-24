@@ -1,0 +1,13 @@
+[gd_resource type="SpatialMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://textures/metal/diamond.png" type="Texture" id=1]
+[ext_resource path="res://textures/metal/diamond_rough.png" type="Texture" id=2]
+[ext_resource path="res://textures/metal/diamond_uv.png" type="Texture" id=3]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+roughness = 0.83
+roughness_texture = ExtResource( 2 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 3 )

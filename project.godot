@@ -1,6 +1,13 @@
-[]
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=4
+
 _global_script_classes=[ {
 "base": "LiquidLayer",
 "class": "LavaLayer",
@@ -241,6 +248,21 @@ window/size/fullscreen=true
 
 enabled=PoolStringArray( "res://addons/qodot/plugin.cfg" )
 
+[global]
+
+texture=false
+
+[importer_defaults]
+
+texture={
+"compress/mode": 3,
+"flags/filter": false
+}
+texture_3d={
+"compress/mode": 0,
+"flags/filter": false
+}
+
 [input]
 
 move_forward={
@@ -288,12 +310,12 @@ atk1={
 
 [physics]
 
+common/physics_fps=144
 3d/active_soft_world=false
 
 [rendering]
 
 quality/filters/anisotropic_filter_level=1
-quality/filters/use_nearest_mipmap_filter=true
 quality/filters/use_fxaa=true
 quality/filters/use_debanding=true
 environment/default_environment="res://default_env.tres"

@@ -5,6 +5,7 @@ extends KinematicBody
 #export var direction: Vector3
 export var velocity: Vector3
 #export var speed: float
+export var shot_speed = 2.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

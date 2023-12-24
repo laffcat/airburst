@@ -18,8 +18,11 @@ func shoot(dir: Vector3, from: Vector3):
 	god.add_child(pew)
 	pew.global_translation = from
 	pew.look_at(from + dir, Vector3.UP)
-	pew.velocity = dir * shot_speed
-	#pew.player = god.player
+	pew.velocity = dir * pew.shot_speed
+	pew.player = god.player
+	god.player.atk1_able = false
+	yield(get_tree().create_timer(0.8),"timeout")
+	god.player.atk1_able = true
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

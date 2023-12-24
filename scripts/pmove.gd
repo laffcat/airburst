@@ -25,8 +25,8 @@ const JUMPFORCE : float = 27.0       # default: 27.0
 const AIRCONTROL : float = 0.9       # default: 0.9
 const STEPSIZE : float = 1.8         # default: 1.8
 const MAXHANG : float = 0.2          # defualt: 0.2
-const PLAYER_HEIGHT : float = 3.6    # default: 3.6
-const CROUCH_HEIGHT : float = 2.0    # default: 2.0
+const PLAYER_HEIGHT : float = 7.5    # default: 3.6
+const CROUCH_HEIGHT : float = 4.0    # default: 2.0
 
 var deltaTime : float = 0.0
 var movespeed : float = 32.0
@@ -151,6 +151,8 @@ Check if the player is touching the ground
 ===============
 """
 func categorize_position():
+	
+	
 	var down  : Vector3
 	var trace : Trace
 	
@@ -161,14 +163,14 @@ func categorize_position():
 	
 	ground_plane = false
 	
-	if trace.fraction == 1:
+	if trace.fraction == 1 or velocity[1] > 10:
 		state = FALLING
 		ground_normal = Vector3.UP
 	else: 
 		ground_plane = true
 		ground_normal = trace.normal
 		
-		if ground_normal[1] < 0.7:
+		if  ground_normal[1] < 0.7:
 			state = FALLING # Too steep!
 		else:
 			if state == FALLING:
@@ -179,6 +181,7 @@ func categorize_position():
 			impact_velocity = 0
 			
 			state = GROUNDED
+			
 
 """
 ===============
