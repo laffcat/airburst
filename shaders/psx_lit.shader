@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode diffuse_lambert, vertex_lighting, cull_disabled, shadows_disabled, depth_draw_opaque;
+render_mode diffuse_lambert, vertex_lighting, cull_disabled, depth_draw_opaque; // shadows_disabled,
 
 uniform float precision_multiplier : hint_range(0.0, 1.0) = 1.0;
 uniform vec4 modulate_color : hint_color = vec4(1.0);
@@ -27,7 +27,7 @@ void vertex()
 	UV += uv_pan_velocity * TIME;
 
 	POSITION = get_snapped_pos(PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX, 1.0));  // snap position to grid
-	POSITION /= abs(POSITION.w);  // discard depth for affine mapping
+	// POSITION /= abs(POSITION.w);  // discard depth for affine mapping
 
 	VERTEX = VERTEX;  // it breaks without this - not sure why
 }

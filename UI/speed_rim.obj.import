@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/speed_rim.obj-79c20be2654f59b47b304db840a1c7dd.mesh"
+
+[deps]
+
+files=[ "res://.import/speed_rim.obj-79c20be2654f59b47b304db840a1c7dd.mesh" ]
+
+source_file="res://UI/speed_rim.obj"
+dest_files=[ "res://.import/speed_rim.obj-79c20be2654f59b47b304db840a1c7dd.mesh", "res://.import/speed_rim.obj-79c20be2654f59b47b304db840a1c7dd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
