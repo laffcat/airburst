@@ -1,14 +1,11 @@
 extends Projectile
 onready var mesh = $missile
+onready var my_fx: PackedScene = preload("res://FX/boom_rl.tscn")
+onready var god = get_tree().get_root().get_node("Spatial")
 
 var player: Player
-onready var god = get_tree().get_root().get_node("Spatial")
 export var splash_kb = 12000.0
-export var splash_range = 20.0
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export var splash_range = 16.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,8 +15,10 @@ func _ready():
 	
 
 func impact():
+	var shpee = my_fx.instance()
+	god.add_child(shpee)
+	shpee.global_translation = global_translation 
 	splash(player)
-	#mesh.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -31,8 +30,8 @@ func splash(target: Spatial):
 	var shpee = global_translation.distance_to(target.global_translation)
 	if shpee < splash_range: 
 		var owo: Vector3 = target.global_translation
-		var pwnage = shpee / splash_range
-		var owning = splash_kb #* pwnage
+		var pwnage = (1.5 - (shpee / splash_range))*.666
+		var owning = splash_kb * pwnage
 		target.push(owning, global_translation.direction_to(owo), 200)
 	queue_free()
 

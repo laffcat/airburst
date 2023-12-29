@@ -17,7 +17,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 339.643, 65.5454, 183.989 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.165891, 0.880388, 0.444294, 0.391393, -0.472312, 0.789768, 0.905148, 0.0428782, -0.42293, -1.26036, 3.67409, -11.4691 )
+transform = Transform( 0.165891, 0.880388, 0.444294, 0.391393, -0.472312, 0.789768, 0.905147, 0.0428783, -0.42293, -26.9556, 21.8982, 69.228 )
 light_color = Color( 1, 0.960784, 0.87451, 1 )
 light_energy = 0.6
 shadow_enabled = true

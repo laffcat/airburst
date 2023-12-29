@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/brick1.png-4496a47998ac17b581e8f91364901282.s3tc.stex"
-path.etc2="res://.import/brick1.png-4496a47998ac17b581e8f91364901282.etc2.stex"
+path.s3tc="res://.import/checker.png-4feeecbe6a15bcb172c05b42241c5d1e.s3tc.stex"
+path.etc2="res://.import/checker.png-4feeecbe6a15bcb172c05b42241c5d1e.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/old/brick1.png"
-dest_files=[ "res://.import/brick1.png-4496a47998ac17b581e8f91364901282.s3tc.stex", "res://.import/brick1.png-4496a47998ac17b581e8f91364901282.etc2.stex" ]
+source_file="res://decalco/examples/assets/textures/checker.png"
+dest_files=[ "res://.import/checker.png-4feeecbe6a15bcb172c05b42241c5d1e.s3tc.stex", "res://.import/checker.png-4feeecbe6a15bcb172c05b42241c5d1e.etc2.stex" ]
 
 [params]
 
@@ -22,11 +22,11 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
-flags/filter=true
+flags/filter=false
 flags/mipmaps=true
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=1
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
