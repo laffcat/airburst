@@ -1,14 +1,69 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://FX/FX_burst.gd" type="Script" id=1]
 [ext_resource path="res://sprites/boom_rl.png" type="Texture" id=2]
+[ext_resource path="res://FX/boom3d.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "boom"
+tracks/0/type = "value"
+tracks/0/path = NodePath("boom3d/Mesh:blend_shapes/contract_1")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("boom3d/Mesh:blend_shapes/contract_2")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="FX" type="Spatial"]
 script = ExtResource( 1 )
 fps = 15
 
 [node name="Sprite" type="Sprite3D" parent="."]
+opacity = 0.8
 pixel_size = 0.2
 billboard = 1
+double_sided = false
 texture = ExtResource( 2 )
 hframes = 5
+
+[node name="boom3d" parent="." instance=ExtResource( 3 )]
+
+[node name="Mesh" parent="boom3d" index="0"]
+cast_shadow = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "boom"
+anims/boom = SubResource( 1 )
+
+[editable path="boom3d"]

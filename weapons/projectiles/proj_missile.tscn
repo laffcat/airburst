@@ -42,7 +42,7 @@ material = SubResource( 6 )
 extents = Vector3( 0.2, 0.2, 0.45 )
 
 [node name="Projectile" type="KinematicBody"]
-collision_layer = 4
+collision_layer = 2147483648
 script = ExtResource( 2 )
 shot_speed = 100.0
 
@@ -51,6 +51,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0
 
 [node name="Particles" type="Particles" parent="missile"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.435139 )
+visible = false
 process_material = SubResource( 5 )
 draw_pass_1 = SubResource( 7 )
 

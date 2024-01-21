@@ -126,7 +126,7 @@ func standard(origin : Vector3, dest : Vector3, shape : Shape, e):
 	params.transform.origin = origin
 	params.collide_with_bodies = true
 	params.exclude = [e]
-	#params.set_collision_mask(mask)
+	params.set_collision_mask(1)
 	
 	hit = false
 	

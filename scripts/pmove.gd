@@ -158,6 +158,7 @@ func categorize_position():
 	
 	# Check for ground 0.1 units below the player
 	down = global_transform.origin + Vector3.DOWN * 0.1
+	
 	trace = Trace.new()
 	trace.standard(global_transform.origin, down, collider.shape, self)
 	
