@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://weapons/rocket.png" type="Texture" id=1]
 [ext_resource path="res://shaders/psx_lit.shader" type="Shader" id=2]
 [ext_resource path="res://weapons/Sprite.material" type="Material" id=3]
 [ext_resource path="res://scripts/weapon/RL_hud.gd" type="Script" id=4]
 [ext_resource path="res://weapons/tex_rocket.material" type="Material" id=5]
+[ext_resource path="res://sounds/sound_rando.gd" type="Script" id=6]
+[ext_resource path="res://sounds/player/wep-RL/boom-2.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/player/wep-RL/boom-3.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/player/wep-RL/boom-1.wav" type="AudioStream" id=9]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "RL_hud_Cylinder"
@@ -256,6 +260,9 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 0, 5.96046e-08, 0, -7.45058e-09, 6.61744e-24, -8.88178e-16, 1, 1, 1, 1, 0.633333, 1, 1.49012e-08, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="AudioStreamRandomPitch" id=9]
+audio_stream = ExtResource( 9 )
+
 [node name="RL_hud" type="Spatial"]
 script = ExtResource( 4 )
 
@@ -304,3 +311,17 @@ anims/holster = SubResource( 5 )
 anims/idle = SubResource( 3 )
 anims/reload_start = SubResource( 8 )
 anims/shoot = SubResource( 4 )
+
+[node name="SoundShoot" type="Node" parent="."]
+script = ExtResource( 6 )
+pitch_min = 0.8
+pitch_max = 0.9
+
+[node name="Shoot1" type="AudioStreamPlayer" parent="SoundShoot"]
+stream = SubResource( 9 )
+
+[node name="Shoot2" type="AudioStreamPlayer" parent="SoundShoot"]
+stream = ExtResource( 7 )
+
+[node name="Shoot3" type="AudioStreamPlayer" parent="SoundShoot"]
+stream = ExtResource( 8 )

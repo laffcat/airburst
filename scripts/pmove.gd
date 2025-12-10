@@ -19,14 +19,14 @@ const WALKSPEED : float = 16.0       # default: 16.0
 const STOPSPEED : float = 10.0       # default: 10.0
 const GRAVITY : float = 80.0         # default: 80.0
 const ACCELERATE : float = 10.0      # default: 10.0
-const AIRACCELERATE : float = 0.25   # default: 0.7
+const AIRACCELERATE : float = 0.7   # default: 0.7
 const MOVEFRICTION : float = 6.0     # default: 6.0
 const JUMPFORCE : float = 27.0       # default: 27.0
 const AIRCONTROL : float = 0.9       # default: 0.9
 const STEPSIZE : float = 1.8         # default: 1.8
 const MAXHANG : float = 0.2          # defualt: 0.2
-const PLAYER_HEIGHT : float = 7.5    # default: 3.6
-const CROUCH_HEIGHT : float = 4.0    # default: 2.0
+const PLAYER_HEIGHT : float = 6.0    # default: 3.6
+const CROUCH_HEIGHT : float = 3.2    # default: 2.0
 
 var deltaTime : float = 0.0
 var movespeed : float = 32.0
@@ -48,6 +48,8 @@ var velocity : Vector3 = Vector3.ZERO
 
 enum {GROUNDED, FALLING, LADDER, SWIMMING, NOCLIP}
 var state = GROUNDED
+
+func hud_anim_yump(anim : String) -> void: pass
 
 """
 ===============
@@ -80,8 +82,10 @@ func _input(_event):
 	if Input.is_action_just_pressed("jump"): 
 		if !jump_press:
 			jump_press = true
+			hud_anim_yump("enable")
 		else:
 			jump_press = false
+			hud_anim_yump("disable")
 	
 	if Input.is_action_pressed("crouch"):
 		crouch_press = true
@@ -196,12 +200,12 @@ func calc_fall_damage():
 	if fall_dist >= 20 and impact_velocity >= 45: 
 		#jump_press = false
 		sfx.play_land_hurt()
-		head.parse_damage(Vector3.ONE * float(impact_velocity / 6))
+		#head.parse_damage(Vector3.ONE * float(impact_velocity / 6))
 	else:
 		if fall_dist > PLAYER_HEIGHT:
 			sfx.play_land()
-		if fall_dist >= 6:
-			head.parse_damage(Vector3.ONE * float(impact_velocity / 8))
+		#if fall_dist >= 6:
+			#head.parse_damage(Vector3.ONE * float(impact_velocity / 8))
 
 """
 ===============
@@ -230,6 +234,7 @@ func jump_button():
 		
 		
 		sfx.play_jump()
+		hud_anim_yump("yump")
 		
 		# Make sure jump velocity is positive if moving down
 		if state == FALLING or velocity[1] < 0.0:

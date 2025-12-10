@@ -8,7 +8,7 @@ pmove_extended.gd
 - Leading edge drop off check
 - Sets footstep sfx ground type
 """
-onready var wep_active : Weapon = $Head/Camera/ViewModel/RL_hud
+onready var wep_active : Weapon #= $Head/Camera/ViewModel/WepRoot/RL_hud
 onready var my_head = $Head
 onready var barrel = $Head/Camera/Barrel
 onready var cam = $Head/Camera
@@ -19,6 +19,14 @@ const LADDER_LAYER = 2
 
 export var checkpoint_pos: Vector3
 export var mass: float = 1.0
+
+func hud_anim_yump(anim : String) -> void:
+	$Head/Camera/Hud3D/AnimYump.stop(true)
+	$Head/Camera/Hud3D/AnimYump.play(anim)
+
+func wep_equip(wep : Weapon) -> void:
+	$Head/Camera/ViewModel/WepRoot.add_child(wep)
+	wep_active = wep
 
 """
 ===============
@@ -189,7 +197,7 @@ func ground_accelerate(wishdir : Vector3, wishspeed : float):
 		velocity = velocity.linear_interpolate(Vector3.ZERO, friction * deltaTime) 
 
 func char_inputs():
-	if atk1_press and atk1_able:
+	if wep_active and atk1_press and atk1_able:
 		wep_active.shoot(cam.global_translation.direction_to(xhair.global_translation), barrel.global_translation)
 
 func jump_button():
@@ -214,11 +222,17 @@ func jump_button():
 		my_head.swayPos.y = -0.4
 		
 		sfx.play_jump()
+		hud_anim_yump("yump")
 		
 		# Make sure jump velocity is positive if moving down
 		if state == FALLING or velocity[1] < 0.0:
 			velocity[1] = JUMPFORCE
 		else:
 			velocity[1] += JUMPFORCE
+
+
+
+
+
 
 

@@ -115,10 +115,10 @@ func _physics_process(delta):
 	else:
 		idletime = 0.0
 		add_bob()
-		if newbob:
-			view_bob_modern()
-		else:
-			view_bob_classic()
+#		if newbob:
+#			view_bob_modern()
+#		else:
+#			view_bob_classic()
 	
 	smooth_step_up()
 	

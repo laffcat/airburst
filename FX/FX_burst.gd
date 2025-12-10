@@ -12,12 +12,15 @@ var clock := -1.0
 var active = true
 
 func _ready():
+	$boom3d/Mesh.mesh = $boom3d/Mesh.mesh.duplicate()
 	frames = sprite.hframes
 	if randi() % 2: sprite.flip_h = true
 	if randi() % 2: sprite.flip_v = true
 	mesh.global_rotation.x = randi() % 359
 	mesh.global_rotation.y = randi() % 359
 	mesh.global_rotation.z = randi() % 359
+	yield(get_tree(), "idle_frame")
+	$SoundBoom.play()
 	
 func _process(delta):
 	if active:

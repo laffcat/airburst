@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/x_01.obj-b46a84430bd3541f34f8f96f62662b9a.mesh"
+
+[deps]
+
+files=[ "res://.import/x_01.obj-b46a84430bd3541f34f8f96f62662b9a.mesh" ]
+
+source_file="res://UI/xhairs/x_01.obj"
+dest_files=[ "res://.import/x_01.obj-b46a84430bd3541f34f8f96f62662b9a.mesh", "res://.import/x_01.obj-b46a84430bd3541f34f8f96f62662b9a.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

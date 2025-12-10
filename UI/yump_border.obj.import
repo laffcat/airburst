@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/yump_border.obj-2c760af19ed4a19416ec70f6964faf80.mesh"
+
+[deps]
+
+files=[ "res://.import/yump_border.obj-2c760af19ed4a19416ec70f6964faf80.mesh" ]
+
+source_file="res://UI/yump_border.obj"
+dest_files=[ "res://.import/yump_border.obj-2c760af19ed4a19416ec70f6964faf80.mesh", "res://.import/yump_border.obj-2c760af19ed4a19416ec70f6964faf80.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

@@ -1,20 +1,465 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/view_extended.gd" type="Script" id=1]
 [ext_resource path="res://scripts/pmove_extended.gd" type="Script" id=2]
 [ext_resource path="res://scripts/paudio.gd" type="Script" id=3]
 [ext_resource path="res://audio/windfall_1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://audio/concrete_0.ogg" type="AudioStream" id=5]
-[ext_resource path="res://weapons/RL_hud.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/xhairs/x_01.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/xhairs/x_01.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://textures/bw.png" type="Texture" id=7]
 [ext_resource path="res://fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Hud2D.gd" type="Script" id=9]
 [ext_resource path="res://UI/speed_needle.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://UI/speed_rim.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://UI/speed_bg.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://_src/blend/UI/yump_border.fbx" type="PackedScene" id=13]
+[ext_resource path="res://_src/blend/UI/Material_001.material" type="Material" id=14]
 
 [sub_resource type="CylinderShape" id=1]
 height = 3.6
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("YumpBorder:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YumpBorder/Yump:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YumpBorder/Yump:blend_shapes/on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YumpBorder/Yump:blend_shapes/yump")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YumpBorder:blend_shapes/on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "disable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("YumpBorder:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 0.670588, 0.945098, 1 ), Color( 0.478431, 0.521569, 0.537255, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YumpBorder/Yump:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.890196, 0.619608, 0.356863, 1 ), Color( 0.478431, 0.521569, 0.537255, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YumpBorder/Yump:blend_shapes/on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YumpBorder/Yump:blend_shapes/yump")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YumpBorder:blend_shapes/on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "enable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("YumpBorder:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.478431, 0.521569, 0.537255, 1 ), Color( 0.854902, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YumpBorder/Yump:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.478431, 0.521569, 0.537255, 1 ), Color( 0.890196, 0.619608, 0.356863, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YumpBorder/Yump:blend_shapes/on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YumpBorder/Yump:blend_shapes/yump")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YumpBorder:blend_shapes/on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "idle off"
+tracks/0/type = "value"
+tracks/0/path = NodePath("YumpBorder:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.478431, 0.521569, 0.537255, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YumpBorder/Yump:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.478431, 0.521569, 0.537255, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YumpBorder/Yump:blend_shapes/on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YumpBorder/Yump:blend_shapes/yump")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YumpBorder:blend_shapes/on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "idle on"
+tracks/0/type = "value"
+tracks/0/path = NodePath("YumpBorder:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.854902, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YumpBorder/Yump:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.890196, 0.619608, 0.356863, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YumpBorder/Yump:blend_shapes/on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YumpBorder/Yump:blend_shapes/yump")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YumpBorder:blend_shapes/on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "yump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("YumpBorder:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.854902, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YumpBorder/Yump:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.960784, 0.901961, 0.576471, 1 ), Color( 0.890196, 0.619608, 0.356863, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YumpBorder/Yump:blend_shapes/on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YumpBorder/Yump:blend_shapes/yump")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YumpBorder:blend_shapes/on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Image" id=20]
+data = {
+"data": PoolByteArray( 255, 255, 255, 255, 130, 140, 146, 255 ),
+"format": "RGBA8",
+"height": 1,
+"mipmaps": false,
+"width": 2
+}
+
+[sub_resource type="ImageTexture" id=2]
+image = SubResource( 20 )
+size = Vector2( 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+albedo_texture = SubResource( 2 )
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id=7]
+resource_name = "yump_border_Plane"
+blend_shape_mode = 0
+blend_shape/names = PoolStringArray( "on" )
+blend_shape/mode = 0
+surfaces/0 = {
+"aabb": AABB( -2.3328, -7.37595e-08, -1.58903, 4.66559, 1.0029e-05, 2.16251 ),
+"array_data": PoolByteArray( 179, 94, 180, 63, 152, 101, 64, 179, 140, 252, 119, 62, 0, 127, 127, 63, 0, 52, 0, 56, 72, 194, 222, 63, 146, 1, 137, 179, 160, 72, 235, 62, 0, 127, 127, 63, 0, 52, 0, 56, 72, 194, 222, 63, 146, 1, 137, 179, 160, 72, 235, 62, 0, 127, 127, 63, 0, 58, 0, 56, 129, 91, 141, 63, 49, 99, 125, 51, 38, 240, 113, 191, 0, 127, 127, 63, 0, 52, 0, 56, 238, 90, 172, 63, 82, 128, 167, 51, 160, 202, 148, 191, 0, 127, 127, 63, 0, 52, 0, 56, 238, 90, 172, 63, 82, 128, 167, 51, 160, 202, 148, 191, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 152, 101, 64, 179, 140, 252, 119, 62, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 146, 1, 137, 179, 160, 72, 235, 62, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 146, 1, 137, 179, 160, 72, 235, 62, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 49, 99, 125, 51, 38, 240, 113, 191, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 82, 128, 167, 51, 160, 202, 148, 191, 0, 127, 127, 63, 0, 52, 0, 56, 250, 183, 241, 63, 181, 101, 158, 179, 140, 207, 18, 63, 0, 127, 127, 63, 0, 58, 0, 56, 160, 80, 191, 63, 59, 28, 146, 51, 10, 53, 134, 191, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 181, 101, 158, 179, 140, 207, 18, 63, 0, 127, 127, 63, 0, 58, 0, 56, 179, 94, 180, 191, 152, 101, 64, 179, 140, 252, 119, 62, 0, 127, 127, 63, 0, 52, 0, 56, 72, 194, 222, 191, 146, 1, 137, 179, 160, 72, 235, 62, 0, 127, 127, 63, 0, 52, 0, 56, 72, 194, 222, 191, 146, 1, 137, 179, 160, 72, 235, 62, 0, 127, 127, 63, 0, 58, 0, 56, 129, 91, 141, 191, 49, 99, 125, 51, 38, 240, 113, 191, 0, 127, 127, 63, 0, 52, 0, 56, 238, 90, 172, 191, 82, 128, 167, 51, 160, 202, 148, 191, 0, 127, 127, 63, 0, 52, 0, 56, 238, 90, 172, 191, 82, 128, 167, 51, 160, 202, 148, 191, 0, 127, 127, 63, 0, 58, 0, 56, 250, 183, 241, 191, 181, 101, 158, 179, 140, 207, 18, 63, 0, 127, 127, 63, 0, 58, 0, 56, 160, 80, 191, 191, 59, 28, 146, 51, 10, 53, 134, 191, 0, 127, 127, 63, 0, 58, 0, 56 ),
+"array_index_data": PoolByteArray( 5, 0, 12, 0, 11, 0, 5, 0, 11, 0, 2, 0, 2, 0, 11, 0, 13, 0, 2, 0, 13, 0, 8, 0, 16, 0, 8, 0, 13, 0, 16, 0, 13, 0, 20, 0, 19, 0, 16, 0, 20, 0, 19, 0, 20, 0, 21, 0, 0, 0, 4, 0, 1, 0, 0, 0, 3, 0, 4, 0, 1, 0, 6, 0, 0, 0, 3, 0, 10, 0, 4, 0, 1, 0, 7, 0, 6, 0, 3, 0, 9, 0, 10, 0, 15, 0, 6, 0, 7, 0, 17, 0, 10, 0, 9, 0, 15, 0, 14, 0, 6, 0, 17, 0, 18, 0, 10, 0, 14, 0, 15, 0, 18, 0, 14, 0, 18, 0, 17, 0 ),
+"blend_shape_data": [ PoolByteArray( 198, 63, 237, 63, 152, 101, 64, 179, 140, 252, 119, 62, 0, 127, 127, 63, 0, 52, 0, 56, 174, 209, 11, 64, 146, 1, 137, 179, 160, 72, 235, 62, 69, 39, 127, 193, 0, 52, 0, 56, 174, 209, 11, 64, 146, 1, 137, 179, 160, 72, 235, 62, 69, 39, 127, 193, 0, 58, 0, 56, 148, 60, 198, 63, 49, 99, 125, 51, 38, 240, 113, 191, 85, 81, 127, 63, 0, 52, 0, 56, 1, 60, 229, 63, 82, 128, 167, 51, 160, 202, 148, 191, 90, 78, 127, 63, 0, 52, 0, 56, 1, 60, 229, 63, 82, 128, 167, 51, 160, 202, 148, 191, 90, 78, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 152, 101, 64, 179, 140, 252, 119, 62, 0, 102, 127, 193, 0, 52, 0, 56, 0, 0, 0, 0, 146, 1, 137, 179, 160, 72, 235, 62, 0, 87, 127, 193, 0, 52, 0, 56, 0, 0, 0, 0, 146, 1, 137, 179, 160, 72, 235, 62, 0, 87, 127, 193, 0, 58, 0, 56, 0, 0, 0, 0, 65, 20, 187, 51, 126, 164, 168, 191, 61, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 70, 170, 236, 51, 65, 101, 203, 191, 68, 127, 127, 63, 0, 52, 0, 56, 134, 76, 21, 64, 181, 101, 158, 179, 140, 207, 18, 63, 69, 36, 127, 193, 0, 58, 0, 56, 179, 49, 248, 63, 59, 28, 146, 51, 10, 53, 134, 191, 91, 73, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 181, 101, 158, 179, 140, 207, 18, 63, 0, 80, 127, 193, 0, 58, 0, 56, 198, 63, 237, 191, 152, 101, 64, 179, 140, 252, 119, 62, 189, 47, 127, 193, 0, 52, 0, 56, 174, 209, 11, 192, 146, 1, 137, 179, 160, 72, 235, 62, 187, 39, 127, 193, 0, 52, 0, 56, 174, 209, 11, 192, 146, 1, 137, 179, 160, 72, 235, 62, 187, 39, 127, 193, 0, 58, 0, 56, 148, 60, 198, 191, 49, 99, 125, 51, 38, 240, 113, 191, 171, 81, 127, 63, 0, 52, 0, 56, 1, 60, 229, 191, 82, 128, 167, 51, 160, 202, 148, 191, 166, 78, 127, 63, 0, 52, 0, 56, 1, 60, 229, 191, 82, 128, 167, 51, 160, 202, 148, 191, 166, 78, 127, 63, 0, 58, 0, 56, 134, 76, 21, 192, 181, 101, 158, 179, 140, 207, 18, 63, 187, 36, 127, 193, 0, 58, 0, 56, 179, 49, 248, 191, 59, 28, 146, 51, 10, 53, 134, 191, 165, 73, 0, 63, 0, 58, 0, 56 ) ],
+"format": 6389015,
+"index_count": 60,
+"material": SubResource( 4 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 22
+}
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_unshaded = true
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="ArrayMesh" id=8]
+resource_name = "yump_inner_Plane001"
+blend_shape_mode = 0
+blend_shape/names = PoolStringArray( "on", "yump" )
+blend_shape/mode = 0
+surfaces/0 = {
+"aabb": AABB( -1.38282, -0.00443325, -1.10862, 2.76565, 0.028823, 1.28555 ),
+"array_data": PoolByteArray( 0, 0, 0, 0, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 58, 0, 56, 58, 202, 101, 63, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 52, 0, 56, 58, 202, 101, 63, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 40, 184, 199, 60, 132, 20, 68, 189, 0, 127, 127, 63, 0, 52, 0, 56, 43, 107, 55, 63, 40, 184, 199, 60, 132, 20, 68, 189, 0, 127, 127, 63, 0, 52, 0, 56, 58, 202, 101, 63, 48, 184, 199, 60, 189, 217, 72, 190, 0, 127, 127, 63, 0, 52, 0, 56, 58, 202, 101, 63, 48, 184, 199, 60, 189, 217, 72, 190, 0, 127, 127, 63, 0, 58, 0, 56, 43, 107, 55, 63, 48, 184, 199, 60, 189, 217, 72, 190, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 30, 184, 199, 60, 39, 46, 53, 62, 0, 127, 127, 63, 0, 58, 0, 56, 225, 95, 116, 63, 30, 184, 199, 60, 39, 46, 53, 62, 0, 127, 127, 63, 0, 58, 0, 56, 225, 95, 116, 63, 44, 184, 199, 60, 41, 188, 6, 190, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 102, 68, 145, 187, 46, 22, 155, 61, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 102, 68, 145, 187, 46, 22, 155, 61, 0, 127, 127, 63, 0, 58, 0, 56, 103, 125, 234, 62, 102, 68, 145, 187, 46, 22, 155, 61, 0, 127, 127, 63, 0, 52, 0, 56, 103, 125, 234, 62, 102, 68, 145, 187, 46, 22, 155, 61, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 250, 59, 145, 187, 80, 250, 55, 188, 0, 127, 127, 63, 0, 52, 0, 56, 103, 125, 234, 62, 250, 59, 145, 187, 80, 250, 55, 188, 0, 127, 127, 63, 0, 52, 0, 56, 103, 125, 234, 62, 250, 59, 145, 187, 80, 250, 55, 188, 0, 127, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 118, 68, 145, 187, 6, 27, 218, 61, 0, 127, 127, 63, 0, 58, 0, 56, 159, 62, 250, 62, 118, 68, 145, 187, 6, 27, 218, 61, 0, 127, 127, 63, 0, 58, 0, 56, 159, 62, 250, 62, 250, 59, 145, 187, 88, 22, 160, 60, 0, 127, 127, 63, 0, 58, 0, 56, 58, 202, 101, 191, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 52, 0, 56, 58, 202, 101, 191, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 58, 0, 56, 43, 107, 55, 191, 40, 184, 199, 60, 132, 20, 68, 189, 0, 127, 127, 63, 0, 52, 0, 56, 58, 202, 101, 191, 48, 184, 199, 60, 189, 217, 72, 190, 0, 127, 127, 63, 0, 52, 0, 56, 58, 202, 101, 191, 48, 184, 199, 60, 189, 217, 72, 190, 0, 127, 127, 63, 0, 58, 0, 56, 43, 107, 55, 191, 48, 184, 199, 60, 189, 217, 72, 190, 0, 127, 127, 63, 0, 52, 0, 56, 225, 95, 116, 191, 30, 184, 199, 60, 39, 46, 53, 62, 0, 127, 127, 63, 0, 58, 0, 56, 225, 95, 116, 191, 44, 184, 199, 60, 41, 188, 6, 190, 0, 127, 127, 63, 0, 58, 0, 56, 103, 125, 234, 190, 102, 68, 145, 187, 46, 22, 155, 61, 0, 127, 127, 63, 0, 52, 0, 56, 103, 125, 234, 190, 102, 68, 145, 187, 46, 22, 155, 61, 0, 127, 127, 63, 0, 58, 0, 56, 103, 125, 234, 190, 250, 59, 145, 187, 80, 250, 55, 188, 0, 127, 127, 63, 0, 52, 0, 56, 103, 125, 234, 190, 250, 59, 145, 187, 80, 250, 55, 188, 0, 127, 127, 63, 0, 58, 0, 56, 159, 62, 250, 190, 118, 68, 145, 187, 6, 27, 218, 61, 0, 127, 127, 63, 0, 58, 0, 56, 159, 62, 250, 190, 250, 59, 145, 187, 88, 22, 160, 60, 0, 127, 127, 63, 0, 58, 0, 56 ),
+"array_index_data": PoolByteArray( 7, 0, 11, 0, 10, 0, 7, 0, 10, 0, 3, 0, 3, 0, 10, 0, 9, 0, 3, 0, 9, 0, 1, 0, 23, 0, 1, 0, 9, 0, 23, 0, 9, 0, 28, 0, 26, 0, 23, 0, 28, 0, 26, 0, 28, 0, 29, 0, 0, 0, 5, 0, 2, 0, 5, 0, 6, 0, 2, 0, 5, 0, 8, 0, 6, 0, 0, 0, 4, 0, 5, 0, 0, 0, 24, 0, 4, 0, 0, 0, 22, 0, 24, 0, 24, 0, 22, 0, 25, 0, 24, 0, 25, 0, 27, 0, 12, 0, 17, 0, 14, 0, 12, 0, 16, 0, 17, 0, 12, 0, 32, 0, 16, 0, 12, 0, 30, 0, 32, 0, 18, 0, 20, 0, 15, 0, 18, 0, 21, 0, 20, 0, 15, 0, 20, 0, 19, 0, 15, 0, 19, 0, 13, 0, 31, 0, 13, 0, 19, 0, 31, 0, 19, 0, 34, 0, 33, 0, 31, 0, 34, 0, 33, 0, 34, 0, 35, 0 ),
+"blend_shape_data": [ PoolByteArray( 0, 0, 0, 0, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 33, 184, 199, 60, 30, 33, 230, 61, 0, 114, 127, 193, 0, 58, 0, 56, 130, 181, 169, 63, 33, 184, 199, 60, 30, 33, 230, 61, 56, 63, 127, 193, 0, 52, 0, 56, 130, 181, 169, 63, 33, 184, 199, 60, 30, 33, 230, 61, 56, 63, 127, 193, 0, 58, 0, 56, 0, 0, 0, 0, 40, 184, 199, 60, 132, 20, 68, 189, 5, 127, 127, 63, 0, 52, 0, 56, 251, 133, 146, 63, 40, 184, 199, 60, 132, 20, 68, 189, 54, 76, 127, 63, 0, 52, 0, 56, 130, 181, 169, 63, 48, 184, 199, 60, 189, 217, 72, 190, 65, 73, 127, 63, 0, 52, 0, 56, 130, 181, 169, 63, 48, 184, 199, 60, 189, 217, 72, 190, 65, 73, 127, 63, 0, 58, 0, 56, 251, 133, 146, 63, 48, 184, 199, 60, 189, 217, 72, 190, 59, 80, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 30, 184, 199, 60, 39, 46, 53, 62, 0, 108, 127, 193, 0, 58, 0, 56, 86, 0, 177, 63, 30, 184, 199, 60, 39, 46, 53, 62, 56, 60, 127, 193, 0, 58, 0, 56, 86, 0, 177, 63, 44, 184, 199, 60, 41, 188, 6, 190, 65, 69, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 163, 68, 145, 187, 166, 92, 190, 190, 0, 118, 127, 193, 0, 52, 0, 56, 0, 0, 0, 0, 163, 68, 145, 187, 166, 92, 190, 190, 0, 118, 127, 193, 0, 58, 0, 56, 234, 105, 5, 63, 186, 68, 145, 187, 105, 33, 108, 190, 38, 82, 127, 193, 0, 52, 0, 56, 234, 105, 5, 63, 186, 68, 145, 187, 105, 33, 108, 190, 38, 82, 127, 193, 0, 58, 0, 56, 0, 0, 0, 0, 4, 59, 145, 187, 104, 145, 9, 191, 1, 127, 127, 63, 0, 52, 0, 56, 234, 105, 5, 63, 26, 59, 145, 187, 220, 214, 202, 190, 40, 87, 127, 63, 0, 52, 0, 56, 234, 105, 5, 63, 26, 59, 145, 187, 220, 214, 202, 190, 40, 87, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 181, 68, 145, 187, 60, 111, 172, 190, 0, 114, 127, 193, 0, 58, 0, 56, 160, 96, 14, 63, 205, 68, 145, 187, 229, 80, 62, 190, 39, 79, 127, 193, 0, 58, 0, 56, 160, 96, 14, 63, 26, 59, 145, 187, 112, 233, 184, 190, 41, 84, 127, 193, 0, 58, 0, 56, 130, 181, 169, 191, 33, 184, 199, 60, 30, 33, 230, 61, 200, 63, 127, 193, 0, 52, 0, 56, 130, 181, 169, 191, 33, 184, 199, 60, 30, 33, 230, 61, 200, 63, 127, 193, 0, 58, 0, 56, 251, 133, 146, 191, 40, 184, 199, 60, 132, 20, 68, 189, 202, 76, 127, 63, 0, 52, 0, 56, 130, 181, 169, 191, 48, 184, 199, 60, 189, 217, 72, 190, 191, 73, 127, 63, 0, 52, 0, 56, 130, 181, 169, 191, 48, 184, 199, 60, 189, 217, 72, 190, 191, 73, 127, 63, 0, 58, 0, 56, 251, 133, 146, 191, 48, 184, 199, 60, 189, 217, 72, 190, 197, 80, 127, 63, 0, 52, 0, 56, 86, 0, 177, 191, 30, 184, 199, 60, 39, 46, 53, 62, 200, 60, 127, 193, 0, 58, 0, 56, 86, 0, 177, 191, 44, 184, 199, 60, 41, 188, 6, 190, 191, 69, 127, 63, 0, 58, 0, 56, 234, 105, 5, 191, 186, 68, 145, 187, 105, 33, 108, 190, 218, 82, 127, 193, 0, 52, 0, 56, 234, 105, 5, 191, 186, 68, 145, 187, 105, 33, 108, 190, 218, 82, 127, 193, 0, 58, 0, 56, 234, 105, 5, 191, 26, 59, 145, 187, 220, 214, 202, 190, 216, 87, 127, 63, 0, 52, 0, 56, 234, 105, 5, 191, 26, 59, 145, 187, 220, 214, 202, 190, 216, 87, 127, 63, 0, 58, 0, 56, 160, 96, 14, 191, 205, 68, 145, 187, 229, 80, 62, 190, 217, 79, 127, 193, 0, 58, 0, 56, 160, 96, 14, 191, 26, 59, 145, 187, 112, 233, 184, 190, 215, 84, 127, 193, 0, 58, 0, 56 ), PoolByteArray( 0, 0, 0, 0, 33, 184, 199, 60, 30, 33, 230, 61, 0, 127, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 33, 184, 199, 60, 30, 33, 230, 61, 0, 114, 127, 193, 0, 58, 0, 56, 171, 81, 157, 63, 33, 184, 199, 60, 30, 33, 230, 61, 56, 63, 127, 193, 0, 52, 0, 56, 171, 81, 157, 63, 33, 184, 199, 60, 30, 33, 230, 61, 56, 63, 127, 193, 0, 58, 0, 56, 0, 0, 0, 0, 40, 184, 199, 60, 132, 20, 68, 189, 5, 127, 127, 63, 0, 52, 0, 56, 36, 34, 134, 63, 40, 184, 199, 60, 132, 20, 68, 189, 54, 76, 127, 63, 0, 52, 0, 56, 171, 81, 157, 63, 48, 184, 199, 60, 189, 217, 72, 190, 65, 73, 127, 63, 0, 52, 0, 56, 171, 81, 157, 63, 48, 184, 199, 60, 189, 217, 72, 190, 65, 73, 127, 63, 0, 58, 0, 56, 36, 34, 134, 63, 48, 184, 199, 60, 189, 217, 72, 190, 59, 80, 127, 63, 0, 52, 0, 56, 0, 0, 0, 0, 30, 184, 199, 60, 39, 46, 53, 62, 0, 108, 127, 193, 0, 58, 0, 56, 127, 156, 164, 63, 30, 184, 199, 60, 39, 46, 53, 62, 56, 60, 127, 193, 0, 58, 0, 56, 127, 156, 164, 63, 44, 184, 199, 60, 41, 188, 6, 190, 65, 69, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 70, 68, 145, 187, 62, 107, 113, 191, 0, 118, 127, 193, 0, 52, 0, 56, 0, 0, 0, 0, 70, 68, 145, 187, 62, 107, 113, 191, 0, 118, 127, 193, 0, 58, 0, 56, 234, 105, 5, 63, 104, 68, 145, 187, 94, 114, 60, 191, 38, 82, 127, 193, 0, 52, 0, 56, 234, 105, 5, 63, 104, 68, 145, 187, 94, 114, 60, 191, 38, 82, 127, 193, 0, 58, 0, 56, 0, 0, 0, 0, 167, 58, 145, 187, 42, 231, 141, 191, 1, 127, 127, 63, 0, 52, 0, 56, 234, 105, 5, 63, 200, 58, 145, 187, 114, 213, 102, 191, 40, 87, 127, 63, 0, 52, 0, 56, 234, 105, 5, 63, 200, 58, 145, 187, 114, 213, 102, 191, 40, 87, 127, 63, 0, 58, 0, 56, 0, 0, 0, 0, 88, 68, 145, 187, 137, 116, 104, 191, 0, 114, 127, 193, 0, 58, 0, 56, 160, 96, 14, 63, 126, 68, 145, 187, 234, 197, 44, 191, 39, 79, 127, 193, 0, 58, 0, 56, 160, 96, 14, 63, 200, 58, 145, 187, 188, 222, 93, 191, 41, 84, 127, 193, 0, 58, 0, 56, 171, 81, 157, 191, 33, 184, 199, 60, 30, 33, 230, 61, 200, 63, 127, 193, 0, 52, 0, 56, 171, 81, 157, 191, 33, 184, 199, 60, 30, 33, 230, 61, 200, 63, 127, 193, 0, 58, 0, 56, 36, 34, 134, 191, 40, 184, 199, 60, 132, 20, 68, 189, 202, 76, 127, 63, 0, 52, 0, 56, 171, 81, 157, 191, 48, 184, 199, 60, 189, 217, 72, 190, 191, 73, 127, 63, 0, 52, 0, 56, 171, 81, 157, 191, 48, 184, 199, 60, 189, 217, 72, 190, 191, 73, 127, 63, 0, 58, 0, 56, 36, 34, 134, 191, 48, 184, 199, 60, 189, 217, 72, 190, 197, 80, 127, 63, 0, 52, 0, 56, 127, 156, 164, 191, 30, 184, 199, 60, 39, 46, 53, 62, 200, 60, 127, 193, 0, 58, 0, 56, 127, 156, 164, 191, 44, 184, 199, 60, 41, 188, 6, 190, 191, 69, 127, 63, 0, 58, 0, 56, 234, 105, 5, 191, 104, 68, 145, 187, 94, 114, 60, 191, 218, 82, 127, 193, 0, 52, 0, 56, 234, 105, 5, 191, 104, 68, 145, 187, 94, 114, 60, 191, 218, 82, 127, 193, 0, 58, 0, 56, 234, 105, 5, 191, 200, 58, 145, 187, 114, 213, 102, 191, 216, 87, 127, 63, 0, 52, 0, 56, 234, 105, 5, 191, 200, 58, 145, 187, 114, 213, 102, 191, 216, 87, 127, 63, 0, 58, 0, 56, 160, 96, 14, 191, 126, 68, 145, 187, 234, 197, 44, 191, 217, 79, 127, 193, 0, 58, 0, 56, 160, 96, 14, 191, 200, 58, 145, 187, 188, 222, 93, 191, 215, 84, 127, 193, 0, 58, 0, 56 ) ],
+"format": 6389015,
+"index_count": 84,
+"material": ExtResource( 14 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 36
+}
+
+[sub_resource type="SpatialMaterial" id=13]
+flags_unshaded = true
+albedo_texture = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 72
@@ -22,7 +467,7 @@ outline_size = 6
 outline_color = Color( 0.2, 0.180392, 0.207843, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=9]
 default_font = SubResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -31,7 +476,7 @@ outline_size = 6
 outline_color = Color( 0.2, 0.180392, 0.207843, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id=10]
 default_font = SubResource( 5 )
 
 [node name="Player" type="KinematicBody"]
@@ -48,7 +493,31 @@ script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="Head"]
 fov = 90.0
-far = 500.0
+far = 2000.0
+
+[node name="Hud3D" type="Spatial" parent="Head/Camera"]
+
+[node name="AnimYump" type="AnimationPlayer" parent="Head/Camera/Hud3D"]
+autoplay = "idle off"
+anims/RESET = SubResource( 14 )
+anims/disable = SubResource( 17 )
+anims/enable = SubResource( 18 )
+"anims/idle off" = SubResource( 15 )
+"anims/idle on" = SubResource( 16 )
+anims/yump = SubResource( 19 )
+
+[node name="YumpBorder" type="MeshInstance" parent="Head/Camera/Hud3D"]
+transform = Transform( 0.006, 0, 0, 0, 0.0049761, -0.00335238, 0, 0.00335238, 0.0049761, -5.96046e-08, -0.0550102, -0.0664357 )
+mesh = SubResource( 7 )
+blend_shapes/on = 0.0
+material/0 = SubResource( 12 )
+
+[node name="Yump" type="MeshInstance" parent="Head/Camera/Hud3D/YumpBorder"]
+transform = Transform( 1, 0, 0, 0, 1, 4.37114e-08, 0, -4.37114e-08, 1, 0, 0, 0 )
+mesh = SubResource( 8 )
+blend_shapes/on = 0.0
+blend_shapes/yump = 0.0
+material/0 = SubResource( 13 )
 
 [node name="Hud2D" type="Control" parent="Head/Camera"]
 anchor_right = 1.0
@@ -60,6 +529,12 @@ spd_color1 = Color( 0.388235, 0.482353, 1, 1 )
 spd_color2 = Color( 0.745098, 1, 0.513726, 1 )
 spd_color3 = Color( 1, 0, 0, 1 )
 spd_color4 = Color( 0.992157, 0.00784314, 1, 1 )
+
+[node name="xhair" type="MeshInstance2D" parent="Head/Camera/Hud2D"]
+position = Vector2( 960, 540 )
+scale = Vector2( 50, 50 )
+mesh = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="speed" type="Node2D" parent="Head/Camera/Hud2D"]
 position = Vector2( 359, 938 )
@@ -83,7 +558,7 @@ margin_left = 129.0
 margin_top = 945.0
 margin_right = 593.0
 margin_bottom = 1126.0
-theme = SubResource( 4 )
+theme = SubResource( 9 )
 bbcode_enabled = true
 bbcode_text = "[center]:3[/center]"
 text = ":3"
@@ -93,20 +568,20 @@ margin_left = 234.0
 margin_top = 1021.0
 margin_right = 698.0
 margin_bottom = 1202.0
-theme = SubResource( 2 )
+theme = SubResource( 10 )
 text = "        GU/H"
 
 [node name="ViewModel" type="Spatial" parent="Head/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.518437, -0.75 )
 
-[node name="RL_hud" parent="Head/Camera/ViewModel" instance=ExtResource( 6 )]
+[node name="WepRoot" type="Spatial" parent="Head/Camera/ViewModel"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.603335, -0.536398, -0.705838 )
-
-[node name="x_01" parent="Head/Camera" instance=ExtResource( 7 )]
-transform = Transform( 0.05, 0, 0, 0, -4.37114e-08, -0.05, 0, 1, -2.18557e-09, 0, 0, -0.608035 )
 
 [node name="Barrel" type="Spatial" parent="Head/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.623468, -1.0188, -2.71626 )
+
+[node name="x_01" type="Spatial" parent="Head/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.480889 )
 
 [node name="Audio" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -128,6 +603,6 @@ bus = "Windrush"
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="yump_border" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0285169, -1.48286, 1.00245 )

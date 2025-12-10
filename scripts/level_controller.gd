@@ -14,7 +14,7 @@ func _ready():
 	randomize()
 
 func _process(_delta):
-	if player.global_transform.origin[1] < -200.0:
+	if player.global_transform.origin[1] < -400.0:
 		reset_player_pos(player.checkpoint_pos)
 
 """

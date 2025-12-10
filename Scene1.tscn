@@ -2,29 +2,20 @@
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/level_controller.gd" type="Script" id=2]
+[ext_resource path="res://weapons/RL_pickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://maps/test.tscn" type="PackedScene" id=4]
-
-[sub_resource type="Environment" id=1]
-ambient_light_color = Color( 0.556863, 0.541176, 0.564706, 1 )
-fog_enabled = true
-fog_depth_begin = 171.2
-fog_depth_end = 539.6
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 339.643, 65.5454, 183.989 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.165891, 0.880388, 0.444294, 0.391393, -0.472312, 0.789768, 0.905147, 0.0428783, -0.42293, -26.9556, 21.8982, 69.228 )
-light_color = Color( 1, 0.960784, 0.87451, 1 )
-light_energy = 0.6
-shadow_enabled = true
-shadow_color = Color( 0.407843, 0.294118, 0.470588, 1 )
-directional_shadow_max_distance = 666.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+checkpoint_pos = Vector3( 0, 20, 0 )
 
 [node name="Map1" parent="." instance=ExtResource( 4 )]
+
+[node name="WepPickup" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -365.357, -43.96, -240.996 )
+
+[node name="WepPickup2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 323.36, 61.04, 132.119 )

@@ -13,6 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 func shoot(dir: Vector3, from: Vector3):
+	$SoundShoot.play()
 	animation_player.play("shoot")
 	var pew = my_proj.instance()
 	god.add_child(pew)
